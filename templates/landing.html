@@ -20,43 +20,105 @@
             <a href="{{ url_for('register') }}" class="btn-primary">Start tracking free</a>
             <a href="{{ url_for('login') }}" class="btn-ghost">Sign in</a>
         </div>
+        <div class="hero-stats">
+            <div class="hero-stat">
+                <strong>Free</strong>
+                <span>forever</span>
+            </div>
+            <div class="hero-stat-divider"></div>
+            <div class="hero-stat">
+                <strong>No</strong>
+                <span>card required</span>
+            </div>
+            <div class="hero-stat-divider"></div>
+            <div class="hero-stat">
+                <strong>Your data</strong>
+                <span>stays private</span>
+            </div>
+        </div>
     </div>
     <div class="hero-visual">
-        <div class="mock-card">
-            <div class="mock-card-header">
-                <span class="mock-label">March 2026</span>
-                <span class="mock-total">₹12,450</span>
+        <div class="dashboard-preview">
+
+            <!-- Main spending card with donut chart -->
+            <div class="preview-card preview-main">
+                <div class="preview-card-header">
+                    <div>
+                        <p class="preview-card-label">Total Spent</p>
+                        <p class="preview-card-total">₹12,450</p>
+                    </div>
+                    <span class="preview-month-badge">April 2026</span>
+                </div>
+                <div class="donut-wrap">
+                    <svg class="donut-chart" viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
+                        <circle class="donut-bg" cx="70" cy="70" r="54"/>
+                        <circle class="donut-seg seg-1" cx="70" cy="70" r="54"
+                            stroke-dasharray="122.14 217.15" stroke-dashoffset="-84.82"/>
+                        <circle class="donut-seg seg-2" cx="70" cy="70" r="54"
+                            stroke-dasharray="88.21 251.08" stroke-dashoffset="-206.96"/>
+                        <circle class="donut-seg seg-3" cx="70" cy="70" r="54"
+                            stroke-dasharray="54.29 285" stroke-dashoffset="-295.17"/>
+                        <circle class="donut-seg seg-4" cx="70" cy="70" r="54"
+                            stroke-dasharray="47.5 291.79" stroke-dashoffset="-349.46"/>
+                        <text x="70" y="66" class="donut-center-label">Spent</text>
+                        <text x="70" y="82" class="donut-center-value">₹12,450</text>
+                    </svg>
+                    <div class="donut-legend">
+                        <div class="legend-item">
+                            <span class="legend-dot dot-1"></span>
+                            <span class="legend-name">Bills</span>
+                            <strong>36%</strong>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-dot dot-2"></span>
+                            <span class="legend-name">Food</span>
+                            <strong>26%</strong>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-dot dot-3"></span>
+                            <span class="legend-name">Health</span>
+                            <strong>16%</strong>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-dot dot-4"></span>
+                            <span class="legend-name">Transport</span>
+                            <strong>14%</strong>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="mock-bars">
-                <div class="mock-bar-row">
-                    <span class="mock-cat">Bills</span>
-                    <div class="mock-bar-track">
-                        <div class="mock-bar" style="width: 72%"></div>
+
+            <!-- Floating recent transactions card -->
+            <div class="preview-card preview-float">
+                <p class="preview-float-label">Recent Transactions</p>
+                <div class="txn-list">
+                    <div class="txn-item">
+                        <div class="txn-icon txn-icon-food">🍔</div>
+                        <div class="txn-info">
+                            <span class="txn-name">Lunch</span>
+                            <span class="txn-cat">Food</span>
+                        </div>
+                        <span class="txn-amt">−₹320</span>
                     </div>
-                    <span class="mock-amt">₹4,500</span>
-                </div>
-                <div class="mock-bar-row">
-                    <span class="mock-cat">Food</span>
-                    <div class="mock-bar-track">
-                        <div class="mock-bar mock-bar-2" style="width: 52%"></div>
+                    <div class="txn-item">
+                        <div class="txn-icon txn-icon-bills">⚡</div>
+                        <div class="txn-info">
+                            <span class="txn-name">Electricity</span>
+                            <span class="txn-cat">Bills</span>
+                        </div>
+                        <span class="txn-amt">−₹1,200</span>
                     </div>
-                    <span class="mock-amt">₹3,200</span>
-                </div>
-                <div class="mock-bar-row">
-                    <span class="mock-cat">Health</span>
-                    <div class="mock-bar-track">
-                        <div class="mock-bar mock-bar-3" style="width: 33%"></div>
+                    <div class="txn-item">
+                        <div class="txn-icon txn-icon-travel">🚌</div>
+                        <div class="txn-info">
+                            <span class="txn-name">Metro</span>
+                            <span class="txn-cat">Transport</span>
+                        </div>
+                        <span class="txn-amt">−₹45</span>
                     </div>
-                    <span class="mock-amt">₹2,050</span>
-                </div>
-                <div class="mock-bar-row">
-                    <span class="mock-cat">Transport</span>
-                    <div class="mock-bar-track">
-                        <div class="mock-bar mock-bar-4" style="width: 28%"></div>
-                    </div>
-                    <span class="mock-amt">₹1,800</span>
                 </div>
             </div>
+
         </div>
     </div>
 </section>
@@ -85,8 +147,28 @@
     <div class="cta-inner">
         <h2 class="cta-title">Ready to take control?</h2>
         <p class="cta-body">Join thousands of people who track their expenses with Spendly.</p>
-        <a href="{{ url_for('register') }}" class="btn-primary">Create free account</a>
+        <div class="cta-actions">
+            <a href="{{ url_for('register') }}" class="btn-primary">Create free account</a>
+            <a href="#" id="btn-how-works" class="btn-ghost">See how it works</a>
+        </div>
     </div>
 </section>
+
+<div id="how-modal" class="modal-overlay" aria-hidden="true">
+    <div class="modal-box" role="dialog" aria-modal="true" aria-label="See how Spendly works">
+        <button class="modal-close" id="modal-close" aria-label="Close">&times;</button>
+        <div class="modal-video-wrap">
+            <iframe
+                id="how-video"
+                src=""
+                data-src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                title="See how Spendly works"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+</div>
 
 {% endblock %}
